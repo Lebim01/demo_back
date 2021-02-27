@@ -8,8 +8,8 @@ module.exports = async (req, res, next) => {
 
     try {
         const verify = await jwt.verify(req.token, process.env.HASH);
-        req.idUser = verify.userId
-        req.email = verify.email
+        req.uuid = verify.uuid
+        req.username = verify.username
         req.isAuth = true
     }catch(err){
         

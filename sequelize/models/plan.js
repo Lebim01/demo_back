@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Plan = sequelize.define('Plan', {
+    uuid: DataTypes.STRING,
     name: DataTypes.STRING,
     duration: DataTypes.INTEGER,
     tax: DataTypes.FLOAT,

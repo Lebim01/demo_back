@@ -1,18 +1,30 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('PaymentMethod', {
+    return queryInterface.createTable('Plan', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      uuid: {
+        type: Sequelize.STRING
+      },
       name: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.TEXT
+      duration: {
+        type: Sequelize.INTEGER
+      },
+      tax: {
+        type: Sequelize.FLOAT
+      },
+      inv_min: {
+        type: Sequelize.FLOAT
+      },
+      inv_max: {
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('PaymentMethod');
+    return queryInterface.dropTable('Event');
   }
 };

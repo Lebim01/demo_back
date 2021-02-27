@@ -3,10 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
-const bcrypt = require('bcrypt')
-const { v4: uuidv4 } = require('uuid');
-
-const models = require('./sequelize/models');
+const cors = require('cors')
 
 /**
  * Middlewares
@@ -17,9 +14,11 @@ app.use(
         require('./middlewares/logged')
     ]
 )
+app.use(cors())
 app.use(bodyParser.json())
 
-
+// use routes
+require('./resolvers')(app)
 
 // The `listen` method launches a web server.
 app.listen(4004, () => {
